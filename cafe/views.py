@@ -13,7 +13,6 @@ def reserve_table(request):
         phone_number = form.cleaned_data['phone']
         name = form.cleaned_data['name']
         num_guests = form.cleaned_data['num_guests']
-
         sms_verification(client_number=phone_number, client_name=name, number_of_guests=num_guests)
         return redirect('reserve')
 
