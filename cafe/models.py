@@ -8,6 +8,7 @@ class Reservation(models.Model):
     date = models.DateField()
     time = models.TimeField()
     num_guests = models.PositiveIntegerField()
+    created_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.name)
@@ -20,7 +21,6 @@ class Menu(models.Model):
     price = models.CharField(max_length=15)
     category = models.CharField(max_length=55)
     created_date = models.DateTimeField(auto_now=True)
-
 
     def __str__(self):
         return str(self.title)
