@@ -27,9 +27,11 @@
     
     <!-- Navbar -->
     <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div>  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -109,19 +111,19 @@
         <form method="post">
             {% csrf_token %}
             <div class="row mb-5">
-                <div class="col-3 my-2">
+                <div class="col-12 col-md-6 col-lg-3 my-2">
                     <input type="name" name="name" class="form-control form-control-lg custom-form-control" placeholder="FULL NAME" required>
                 </div>
-                <div class="col-2 my-2">
+                <div class="col-12 col-md-6 col-lg-2 my-2">
                     <input type="number" name="num_guests" class="form-control form-control-lg custom-form-control" placeholder="NUMBER OF GUESTS" max="20" min="0" required>
                 </div>
-                <div class="col-2 my-2">
+                <div class="col-12 col-md-6 col-lg-2 my-2">
                     <input type="time" name="time" class="form-control form-control-lg custom-form-control" placeholder="TIME" required>
                 </div>
-                <div class="col-2 my-2">
+                <div class="col-12 col-md-6 col-lg-2 my-2">
                     <input type="date" name="date" class="form-control form-control-lg custom-form-control" placeholder="DATE" required>
                 </div>
-                <div class="col-3 my-2">
+                <div class="col-12 col-md-12 col-lg-3 my-2">
                     <input type="tel" name="phone" class="form-control form-control-lg custom-form-control" placeholder="PHONE NUMBER" required>
                 </div>
             </div>
