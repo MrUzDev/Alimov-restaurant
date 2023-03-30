@@ -8,30 +8,31 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with FoodHut landing page.">
     <meta name="author" content="Devcrud">
     <title>FoodHut | Free Bootstrap 4.3.x template</title>
-   
+
     <!-- font icons -->
     <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
 
     <link rel="stylesheet" href="{% static 'assets/vendors/animate/animate.css' %}">
 
+
+    <link href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Bootstrap + FoodHut main styles -->
-	<link rel="stylesheet" href="{% static 'assets/css/foodhut.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/foodhut.css' %}">
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    
+
     <!-- Navbar -->
     <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
-        <div>  
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -43,26 +44,47 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#gallary">Gallary</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#book-table">Book-Table</a>
-                </li>
+
             </ul>
             <a class="navbar-brand m-auto" href="#">
-                <img src="{% static 'assets/imgs/alimovs-restaurant-low-resolution-logo-white-on-transparent-background.svg' %}" class="brand-img" alt="">
-                <span class="brand-txt">Food Hut</span>
+                <img src="{% static 'assets/imgs/alimovs-restaurant-low-resolution-logo-white-on-transparent-background.svg' %}"
+                    class="brand-img" alt="">
+                <!-- <span class="brand-txt">Food Hut</span> -->
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#blog">Blog<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#book-table">Book-Table</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#testmonial">Reviews</a>
+                    <a class="nav-link" href="#blog">Blog<span class="sr-only">(current)</span></a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact Us</a>
                 </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <div class="select">
+                            <span>En</span>
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <input type="hidden" name="gender">
+                        <ul class="dropdown-menu" id="dropdown-menu">
+                            <li id="male">En</li>
+                            <li id="female">Ru</li>
+                            <li id="female">Uz</li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
+        <div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
     </nav>
     <!-- header -->
     <header id="home" class="header">
@@ -74,7 +96,7 @@
     </header>
 
     <!--  About Section  -->
-    <div id="about" class="container-fluid wow fadeIn" id="about"data-wow-duration="1.5s">
+    <div id="about" class="container-fluid wow fadeIn" id="about" data-wow-duration="1.5s">
         {% for dt in aboutus %}
         <div class="row">
             <div class="col-lg-6 has-img-bg"></div>
@@ -104,33 +126,38 @@
         </div>
         {% endfor %}
     </div>
-<div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="book-table">
-    <div class="">
-        <h2 class="section-title mb-5">BOOK A TABLE</h2>
+    <div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="book-table">
+        <div class="">
+            <h2 class="section-title mb-5">BOOK A TABLE</h2>
 
-        <form method="post">
-            {% csrf_token %}
-            <div class="row mb-5">
-                <div class="col-12 col-md-6 col-lg-3 my-2">
-                    <input type="name" name="name" class="form-control form-control-lg custom-form-control" placeholder="FULL NAME" required>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row mb-5">
+                    <div class="col-12 col-md-6 col-lg-3 my-2">
+                        <input type="name" name="name" class="form-control form-control-lg custom-form-control"
+                            placeholder="FULL NAME" required>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2 my-2">
+                        <input type="number" name="num_guests" class="form-control form-control-lg custom-form-control"
+                            placeholder="NUMBER OF GUESTS" max="20" min="0" required>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2 my-2">
+                        <input type="time" name="time" class="form-control form-control-lg custom-form-control"
+                            placeholder="TIME" required>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2 my-2">
+                        <input type="date" name="date" class="form-control form-control-lg custom-form-control"
+                            placeholder="DATE" required>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-3 my-2">
+                        <input type="tel" name="phone" class="form-control form-control-lg custom-form-control"
+                            placeholder="PHONE NUMBER" required>
+                    </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-2 my-2">
-                    <input type="number" name="num_guests" class="form-control form-control-lg custom-form-control" placeholder="NUMBER OF GUESTS" max="20" min="0" required>
-                </div>
-                <div class="col-12 col-md-6 col-lg-2 my-2">
-                    <input type="time" name="time" class="form-control form-control-lg custom-form-control" placeholder="TIME" required>
-                </div>
-                <div class="col-12 col-md-6 col-lg-2 my-2">
-                    <input type="date" name="date" class="form-control form-control-lg custom-form-control" placeholder="DATE" required>
-                </div>
-                <div class="col-12 col-md-12 col-lg-3 my-2">
-                    <input type="tel" name="phone" class="form-control form-control-lg custom-form-control" placeholder="PHONE NUMBER" required>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">FIND TABLE</button>
-        </form>
+                <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">FIND TABLE</button>
+            </form>
+        </div>
     </div>
-</div>
 
 
     <!-- BLOG Section  -->
@@ -140,10 +167,12 @@
             <div class="col-sm-7 col-md-4 mb-5">
                 <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#foods" role="tab" aria-controls="pills-home" aria-selected="true">Foods</a>
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#foods" role="tab"
+                            aria-controls="pills-home" aria-selected="true">Foods</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#juices" role="tab" aria-controls="pills-profile" aria-selected="false">Juices</a>
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#juices" role="tab"
+                            aria-controls="pills-profile" aria-selected="false">Juices</a>
                     </li>
                 </ul>
             </div>
@@ -154,9 +183,11 @@
                     {% for each in menu_dt %}
                     <div class="col-md-4">
                         <div class="card bg-transparent border my-3 my-md-0">
-                            <img src="{{ each.image.url }}" alt="template by DevCRID http://www.devcrud.com/" class="rounded-0 card-img-top mg-responsive">
+                            <img src="{{ each.image.url }}" alt="template by DevCRID http://www.devcrud.com/"
+                                class="rounded-0 card-img-top mg-responsive">
                             <div class="card-body">
-                                <h1 class="text-center mb-4"><a href="#" class="badge badge-primary">{{ each.price }}</a></h1>
+                                <h1 class="text-center mb-4"><a href="#"
+                                        class="badge badge-primary">{{ each.price }}</a></h1>
                                 <h4 class="pt20 pb20">{{ each.title }} </h4>
                                 <p class="text-white">{{ each.body }} </p>
                             </div>
@@ -170,9 +201,11 @@
                     {% for each_juice in drinks_dt %}
                     <div class="col-md-4 my-3 my-md-0">
                         <div class="card bg-transparent border">
-                            <img src="{{ each_juice.image.url }}" alt="template by DevCRID http://www.devcrud.com/" class="rounded-0 card-img-top mg-responsive">
+                            <img src="{{ each_juice.image.url }}" alt="template by DevCRID http://www.devcrud.com/"
+                                class="rounded-0 card-img-top mg-responsive">
                             <div class="card-body">
-                                <h1 class="text-center mb-4"><a href="#" class="badge badge-primary">{{ each_juice.price }}</a></h1>
+                                <h1 class="text-center mb-4"><a href="#"
+                                        class="badge badge-primary">{{ each_juice.price }}</a></h1>
                                 <h4 class="pt20 pb20">{{ each_juice.title }}</h4>
                                 <p class="text-white">{{ each_juice.body }} </p>
                             </div>
@@ -184,39 +217,39 @@
         </div>
     </div>
 
-{#    <!-- REVIEWS Section  -->#}
-{#    <div id="testmonial" class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items">#}
-{#        <h2 class="section-title my-5 text-center">REVIEWS</h2>#}
-{#        <div class="row mt-3 mb-5">#}
-{#            <div class="col-md-4 my-3 my-md-0">#}
-{#                <div class="testmonial-card">#}
-{#                    <h3 class="testmonial-title">John Doe</h3>#}
-{#                    <h6 class="testmonial-subtitle">Web Designer</h6>#}
-{#                    <div class="testmonial-body">#}
-{#                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum nobis eligendi, quaerat accusamus ipsum sequi dignissimos consequuntur blanditiis natus. Aperiam!</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="col-md-4 my-3 my-md-0">#}
-{#                <div class="testmonial-card">#}
-{#                    <h3 class="testmonial-title">Steve Thomas</h3>#}
-{#                    <h6 class="testmonial-subtitle">UX/UI Designer</h6>#}
-{#                    <div class="testmonial-body">#}
-{#                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum minus obcaecati cum eligendi perferendis magni dolorum ipsum magnam, sunt reiciendis natus. Aperiam!</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="col-md-4 my-3 my-md-0">#}
-{#                <div class="testmonial-card">#}
-{#                    <h3 class="testmonial-title">Miranda Joy</h3>#}
-{#                    <h6 class="testmonial-subtitle">Graphic Designer</h6>#}
-{#                    <div class="testmonial-body">#}
-{#                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, nam. Earum nobis eligendi, dignissimos consequuntur blanditiis natus. Aperiam!</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+    {#    <!-- REVIEWS Section  -->#}
+    {#    <div id="testmonial" class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items">#}
+    {#        <h2 class="section-title my-5 text-center">REVIEWS</h2>#}
+    {#        <div class="row mt-3 mb-5">#}
+    {#            <div class="col-md-4 my-3 my-md-0">#}
+    {#                <div class="testmonial-card">#}
+    {#                    <h3 class="testmonial-title">John Doe</h3>#}
+    {#                    <h6 class="testmonial-subtitle">Web Designer</h6>#}
+    {#                    <div class="testmonial-body">#}
+    {#                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum nobis eligendi, quaerat accusamus ipsum sequi dignissimos consequuntur blanditiis natus. Aperiam!</p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div class="col-md-4 my-3 my-md-0">#}
+    {#                <div class="testmonial-card">#}
+    {#                    <h3 class="testmonial-title">Steve Thomas</h3>#}
+    {#                    <h6 class="testmonial-subtitle">UX/UI Designer</h6>#}
+    {#                    <div class="testmonial-body">#}
+    {#                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum minus obcaecati cum eligendi perferendis magni dolorum ipsum magnam, sunt reiciendis natus. Aperiam!</p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div class="col-md-4 my-3 my-md-0">#}
+    {#                <div class="testmonial-card">#}
+    {#                    <h3 class="testmonial-title">Miranda Joy</h3>#}
+    {#                    <h6 class="testmonial-subtitle">Graphic Designer</h6>#}
+    {#                    <div class="testmonial-body">#}
+    {#                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, nam. Earum nobis eligendi, dignissimos consequuntur blanditiis natus. Aperiam!</p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
 
     <!-- CONTACT Section  -->
     <div id="contact" class="container-fluid bg-dark text-light border-top wow fadeIn">
@@ -224,7 +257,9 @@
             {% for loc in contact_dt %}
             <div class="col-md-6 px-0">
                 <div id="map" style="width: 100%; height: 100%; min-height: 400px">
-                    <script async defer src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4c24a933d2b6649eeff70bb3e75eeb864f560bd3b541686e7d35776ce0ecf6c8&amp;lang=ru_RU&amp;scroll=true"></script>
+                    <script async defer
+                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4c24a933d2b6649eeff70bb3e75eeb864f560bd3b541686e7d35776ce0ecf6c8&amp;lang=ru_RU&amp;scroll=true">
+                    </script>
                 </div>
             </div>
             <div class="col-md-6 px-5 has-height-lg middle-items">
@@ -259,12 +294,12 @@
             {% endfor %}
         </div>
     </div>
-{#    <div class="bg-dark text-light text-center border-top wow fadeIn">#}
-{#        <p class="mb-0 py-3 text-muted small"><script>document.write(new Date().getFullYear())</script> Made with <i class="ti-heart text-danger"></i> By <a href="http://devcrud.com">DevCRUD</a></p>#}
-{#    </div>#}
+    {#    <div class="bg-dark text-light text-center border-top wow fadeIn">#}
+    {#        <p class="mb-0 py-3 text-muted small"><script>document.write(new Date().getFullYear())</script> Made with <i class="ti-heart text-danger"></i> By <a href="http://devcrud.com">DevCRUD</a></p>#}
+    {#    </div>#}
     <!-- end of page footer -->
 
-	<!-- core  -->
+    <!-- core  -->
     <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
     <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.j' %}s"></script>
 
@@ -273,13 +308,57 @@
 
     <!-- wow.js -->
     <script src="{% static 'assets/vendors/wow/wow.js' %}"></script>
-    
+
     <!-- google maps -->
-{#    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>#}
-{#    <script async defer src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4c24a933d2b6649eeff70bb3e75eeb864f560bd3b541686e7d35776ce0ecf6c8&amp;width=600&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>#}
+    {#    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>#}
+    {#    <script async defer src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4c24a933d2b6649eeff70bb3e75eeb864f560bd3b541686e7d35776ce0ecf6c8&amp;width=600&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>#}
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script>
+        $('.dropdown').click(function () {
+            $(this).attr('tabindex', 1).focus();
+            $(this).toggleClass('active');
+            $(this).find('.dropdown-menu').slideToggle(300);
+        });
+        $('.dropdown').focusout(function () {
+            $(this).removeClass('active');
+            $(this).find('.dropdown-menu').slideUp(300);
+        });
+        $('.dropdown .dropdown-menu li').click(function () {
+            $(this).parents('.dropdown').find('span').text($(this).text());
+            $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+        });
+        /*End Dropdown Menu*/
+
+
+        $('.dropdown-menu li').click(function () {
+            var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
+                msg = '<span class="msg">Hidden input value: ';
+            $('.msg').html(msg + input + '</span>');
+        });
+
+
+        const dropdown =  document.querySelector('.dropdown')
+
+
+        dropdown.addEventListener('click', () => {
+            if(window.innerWidth < 991) {
+
+                
+                if(document.querySelector('.dropdown.active')) {
+                    // dropdown.getEle('.dropdown.active .dropdown-menu').style.display = 'flex !important'
+                    console.log(document.getElementById('dropdown-menu'));
+                    document.getElementById('dropdown-menu').style.display = 'flex'
+                }
+            }
+        })
+
+    </script>
 
     <!-- FoodHut js -->
     <script src="{% static 'assets/js/foodhut.js' %}"></script>
 
 </body>
+
 </html>
