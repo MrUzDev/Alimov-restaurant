@@ -1,5 +1,4 @@
 from eskiz_sms import EskizSMS
-from twilio.rest import Client
 import requests
 
 
