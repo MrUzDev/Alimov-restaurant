@@ -25,6 +25,7 @@
     <link href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    
     <!-- Bootstrap + FoodHut main styles -->
     <link rel="stylesheet" href="{% static 'assets/css/foodhut.css' %}">
 </head>
@@ -79,20 +80,30 @@
             </ul>
         </div>
 
-        <div>
-            <button onclick="changeBgNav()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+        <div class="navbar-list-logo">
+            <img src="{% static 'assets/imgs/alimovs-restaurant-low-resolution-logo-white-on-transparent-background.svg' %}"
+                 alt="">
         </div>
+
+        <!-- <div class="navbar-list-bars-container"> -->
+            <button onclick="changeBgNav()" class="navbar-toggle navbar-toggle-home" type="button" id="navbar-toggle">
+                <div class="button-box button-box-home" id="ButtonBox">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>             
+                  </div>
+            </button>
+        <!-- </div> -->
 
     </nav>
     <!-- header -->
     <header id="home" class="header">
         <div class="overlay text-white text-center">
 {#            <h1 class="display-2 font-weight-bold my-3">Food Hut</h1>#}
-            <img class="showcase-logo" src="{% static 'assets/imgs/alimovs-restaurant-low-resolution-logo-white-on-transparent-background.svg' %}">
-            <h2 class="display-4 mb-5">Always fresh &amp; Delightful</h2>
+               <h3 id="showcase-Title">Alimov's Restaurant</h3>
+            <h2 class="display-4 mb-5">Oilaviy Restaurant</h2>
             <a class="btn btn-lg btn-primary" href="#gallary">View Our gallary</a>
         </div>
     </header>
@@ -100,15 +111,15 @@
     <!--  About Section  -->
     <div id="about" class="container-fluid wow fadeIn" id="about" data-wow-duration="1.5s">
         {% for dt in aboutus %}
-        <div class="row">
-            <div class="col-lg-6 has-img-bg"></div>
+        <div class="row about-section-tablet">
+            <div class="col-lg-6 col-12 has-img-bg"></div>
             <div class="col-lg-6">
                 <div class="row justify-content-center">
-                    <div class="col-sm-8 py-5 my-5">
+                    <div class="col-sm-12 col-md-10 py-5 my-5">
                         <h2 class="mb-4">About Us</h2>
                         <p>{{ dt.body }}</p>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
         {% endfor %}
@@ -120,10 +131,10 @@
     </div>
     <div class="gallary row">
         {% for each_img in menu_gellery_dt %}
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="{{ each_img.images.url }}" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
+        <div class="col-6 col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="{{ each_img.images.url }}" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img p-1">
+            <a href="#" class="gallary-overlay p-1 text-center">
+                <p class="size">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, eaque vero consequuntur dolore dolor, est aperiam magnam doloribus necessitatibus dignissimos id non? Sequi velit non maiores laborum sint numquam cupiditate.</p>
             </a>
         </div>
         {% endfor %}
@@ -136,23 +147,23 @@
                 {% csrf_token %}
                 <div class="row mb-5">
                     <div class="col-12 col-md-6 col-lg-3 my-2">
-                        <input type="name" name="name" class="form-control form-control-lg custom-form-control"
+                        <input type="name" name="name" class="form-control form-control-lg custom-form-control book-table-input"
                             placeholder="FULL NAME" required>
                     </div>
                     <div class="col-12 col-md-6 col-lg-2 my-2">
-                        <input type="number" name="num_guests" class="form-control form-control-lg custom-form-control"
+                        <input type="number" name="num_guests" class="form-control form-control-lg custom-form-control book-table-input"
                             placeholder="NUMBER OF GUESTS" max="20" min="0" required>
                     </div>
                     <div class="col-12 col-md-6 col-lg-2 my-2">
-                        <input type="time" name="time" class="form-control form-control-lg custom-form-control"
+                        <input type="time" name="time" class="form-control form-control-lg custom-form-control book-table-input"
                             placeholder="TIME" required>
                     </div>
                     <div class="col-12 col-md-6 col-lg-2 my-2">
-                        <input type="date" name="date" class="form-control form-control-lg custom-form-control"
+                        <input type="date" name="date" class="form-control form-control-lg custom-form-control book-table-input"
                             placeholder="DATE" required>
                     </div>
                     <div class="col-12 col-md-12 col-lg-3 my-2">
-                        <input type="tel" name="phone" class="form-control form-control-lg custom-form-control"
+                        <input type="tel" name="phone" class="form-control form-control-lg custom-form-control book-table-input"
                             placeholder="PHONE NUMBER" required>
                     </div>
                 </div>
@@ -260,7 +271,7 @@
             <div class="col-md-6 px-0">
                 <div id="map" style="width: 100%; height: 100%; min-height: 400px">
                     <script async defer
-{#                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4c24a933d2b6649eeff70bb3e75eeb864f560bd3b541686e7d35776ce0ecf6c8&amp;lang=ru_RU&amp;scroll=true">#}
+                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4c24a933d2b6649eeff70bb3e75eeb864f560bd3b541686e7d35776ce0ecf6c8&amp;lang=ru_RU&amp;scroll=true">
                         src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A09a5c272cc4aa7ad46208823da76d8cc1178efbc2d6cea4c4f1d9a36c005ff4f&amp;lang=ru_RU&amp;scroll=true">
                     </script>
                 </div>
@@ -279,7 +290,7 @@
     </div>
 
     <!-- page footer  -->
-    <div class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn">
+    <!-- <div class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn">
         <div class="row">
             {% for loc_footer in contact_dt %}
             <div class="col-sm-4">
@@ -296,7 +307,7 @@
             </div>
             {% endfor %}
         </div>
-    </div>
+    </div> -->
     {#    <div class="bg-dark text-light text-center border-top wow fadeIn">#}
     {#        <p class="mb-0 py-3 text-muted small"><script>document.write(new Date().getFullYear())</script> Made with <i class="ti-heart text-danger"></i> By <a href="http://devcrud.com">DevCRUD</a></p>#}
     {#    </div>#}
@@ -305,6 +316,7 @@
     <!-- core  -->
     <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
     <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.j' %}s"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 
     <!-- bootstrap affix -->
     <script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
@@ -367,10 +379,46 @@
 
 
         const changeBgNav = () => {
+            console.log('hello');
 
             const navbarColapse = document.querySelector('.custom-navbar')
                 navbarColapse.classList.toggle('custum-navbar-bg-active')
+
+            const navbarLogoToglle = document.querySelector('.navbar-list-logo img')
+            navbarLogoToglle.classList.toggle('nav-logo-an-active')
+
+            const navbarCon = document.querySelector('.custom-navbar.navbar') 
+            const navbarCollapse = document.querySelector('.navbar-collapse.collapse') 
+
+            navbarCollapse.classList.toggle('show')
+
+            MenuIcon.reversed() ? MenuIcon.play() : MenuIcon.reverse();
+            HoverMenuIcon.kill();
         }
+
+        var menubcg = document.getElementById('navbar-toggle');
+  
+var span1 = document.querySelector('.navbar-toggle .icon-bar:nth-child(2)');
+var span2 = document.querySelector('.navbar-toggle .icon-bar:nth-child(3)');
+var span3 = document.querySelector('.navbar-toggle .icon-bar:nth-child(4)');
+var removeActive = document.getElementById('navbar-middle');      
+ 
+var MenuIcon = new TimelineMax({paused:true, reversed:true});
+MenuIcon
+.to(span1,0.5,{x:2, width:'40px',rotation:45,transformOrigin:'0px 50%', ease: Elastic.easeInOut.config(0.6, 0.3)},span1)
+.to(span3,0.5,{x:2, width:'40px',rotation:-45, transformOrigin:'0px 50%', ease: Elastic.easeInOut.config(0.6, 0.3)},span1)
+.to(span2,0.5,{x:50, ease: Elastic.easeInOut.config(0.6, 0.3)},span1);
+
+
+
+var spanOne = document.querySelector('.navbar-toggle .icon-bar:nth-child(2)');
+var spanThree = document.querySelector('.navbar-toggle .icon-bar:nth-child(4)');
+    
+var HoverMenuIcon = new TimelineMax({paused:true, reversed:true});
+    HoverMenuIcon
+    .to(spanOne, .2, {width:40, ease: Power1.easeOut },'spanOne')
+    .to(spanThree, .2, {width:40, ease: Power1.easeOut },'spanOne');
+
 
     </script>
 

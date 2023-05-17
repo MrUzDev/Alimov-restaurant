@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "modeltranslation",
+    # "modeltranslation",
     'cafe'
 ]
 
@@ -47,9 +47,12 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'django.middleware.locale.LocaleMiddleware'
+    'django.middleware.locale.LocaleMiddleware',
+
+    # 'modeltranslation.middleware.AutoAddTranslationsMiddleware',
 ]
 
+# TRANSLATABLE_MODEL_MODULES = ['cafe.models']
 
 ROOT_URLCONF = "django_app.urls"
 
@@ -125,6 +128,7 @@ LANGUAGES = (
 
 MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'uz')
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+
 
 
 LOCALE_PATHS = [
